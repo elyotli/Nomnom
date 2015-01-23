@@ -1,0 +1,38 @@
+ - i need to have a menu page, interactive, record down what people chosen, mobile friendly
+ 	- with unique id
+
+
+ - the submit button should goes to an api with all the submitted information
+
+ - need a kitchen client, constant communication with my api requesting information.
+
+ - need authentication on both ends
+
+
+
+ db:
+
+ - user
+ 	- id
+ 	- name
+ 	- phone number
+
+ - business
+ 	- id
+ 	- name
+ 	- email
+ 	- password
+
+ - items
+ 	- id
+ 	- restaurant_id
+ 	- name
+ 	- description
+ 	- type
+ 	- picture
+
+ - order, connecting to user and items
+ 	- id
+ 	- user_id
+ 	- items_id
+ 	- special request

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <h1>Let's Nom</h1>
+  </div>
+</nav>
+
+<main>
+	<div class="page-header">
+	  <h1>Welcome to <%= @business.name %>!</h1>
+	</div>
+
+	<table class="table table-striped">
+		<% @business.items.each do |item| %>
+			<div class="hero-unit">
+				<h1><%= item.name %></h1>
+			</div>
+		<% end %>
+	</table>
+
+
+</main>
