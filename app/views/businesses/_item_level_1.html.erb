@@ -1,0 +1,11 @@
+<div class="level-1">
+	<% if item.keys[0].has_price? %>
+		<div class="price-div item-clickable">
+			<span class="glyphicon glyphicon-plus price-button">1</span>
+			<span class="glyphicon-class price-tag">$ <%= item.keys[0].price %></span>
+		</div>
+	<% end %>
+  	<h4 class="level-1-title">
+    	<%= item.keys[0].name %>
+  	</h4>
+</div>

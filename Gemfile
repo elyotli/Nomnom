@@ -44,4 +44,10 @@ gem 'bcrypt'
 gem "therubyracer"
 gem "less-rails"
 
+group :test do
+    gem 'cucumber-rails', :require => false
+      # database_cleaner is not required, but highly recommended
+    gem 'database_cleaner'
+end
+
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'

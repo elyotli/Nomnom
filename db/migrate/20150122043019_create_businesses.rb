@@ -3,7 +3,7 @@ class CreateBusinesses < ActiveRecord::Migration
     create_table :businesses do |t|
     	t.string :name
     	t.string :email
-    	t.string :password_hash
+    	t.string :password_digest
 
       	t.timestamps
     end

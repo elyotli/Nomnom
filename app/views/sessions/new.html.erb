@@ -1,0 +1,18 @@
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<div class="container">
+
+	<h1 class="form-signin-heading text-muted center-text">Welcome Back!</h1>
+
+	<%= render 'shared/flash_messages' if !flash.empty? %>
+
+	<%= form_for(:session, url: login_path) do |b| %>
+	  	<%= b.text_field :email, class: "form-control", placeholder: "Email address"%>
+	  	<%= b.password_field :password, class: "form-control", placeholder: "Password"%><br/>
+	  	<%= b.submit "Sign in", class:"btn btn-lg btn-primary btn-block"%>
+
+
+	<% end %>
+
+	<p>New user? <%= link_to "Sign up now!", new_business_path %></p>
+</div>

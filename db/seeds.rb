@@ -9,7 +9,9 @@
 User.create!(first_name: "Vince", last_name: "Li", dob: Date.parse('15-03-1990'), phone:"6267809466")
 
 #Creating menu for Chicago Pizza And Oven Grinder Co.
-CPOGC = Business.create!(name: "Chicago Pizza And Oven Grinder Co.", email: "vlmist315@gmail.com")
+CPOGC = Business.new(name: "Chicago Pizza And Oven Grinder Co.", email: "vlmist315@gmail.com")
+CPOGC.password = "1990315"
+CPOGC.save!
 
 pizza_pot_pie = Item.create!(business: CPOGC, name: "Pizza Pot Pie", description: 'The Pizza Pot Pie is an individual serving, "made from scratch" with triple-raised Sicilian bread-type dough; a homemade sauce consisting of olive oil, fresh garlic, onions, green peppers, whole plum tomatoes and a special blend of cheeses; sausage made from prime Boston butts; and doorknob-size, whole, fresh mushrooms. (Vegetarian pizza pot pie may be special ordered.)', item_level: 3)
 

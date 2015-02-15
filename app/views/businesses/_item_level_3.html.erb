@@ -1,0 +1,23 @@
+<a href="#" class="list-group-item item-clickable">
+  	<h4 class="list-group-item-heading">
+    	<%= item.keys[0].name %>
+  	</h4>
+  	<p class="list-group-item-text">
+    	<%= item.keys[0].description %>
+  	</p>
+</a>
+<% if item.values[0].length > 0 %>
+  <div class="row">
+  	<div class='col-md-1 col-sm-1 col-xs-1'></div>
+    <div class='col-md-11 col-sm-11 col-xs-11'>
+  		<% item.values[0].each do |sub_item| %>
+        <% case sub_item.keys[0].item_level %>
+        <% when 1 %>
+          <%= render :partial => 'item_level_1', :locals => {:item => sub_item} %>
+        <% when 2 %>
+          <%= render :partial => 'item_level_2', :locals => {:item => sub_item} %>
+  			<% end %>
+  		<% end %>
+    </div>
+  </div>
+<% end %>
