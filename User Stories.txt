@@ -6,12 +6,6 @@
 
  - need a kitchen client, constant communication with my api requesting information.
 
- - need authentication on both ends
-
-
-
- db:
-
  - user
  	- id
  	- name
@@ -22,6 +16,31 @@
  	- name
  	- email
  	- password
+
+ - business has multiple sets of menus
+ - i need be to be able to call business.menus
+ - menu is a hierarchy that holds no information
+
+ - each menu needs to have the items listed
+ 	- so each item will have an menu id
+
+ - each items needs to be linked to details
+ - so i can call item.details
+
+ - this is just for rendering?
+
+ - each order is a json sent back from the front end to a different API
+ 	- save it to the db somehow
+ 		- how does orders table store all the possible details
+ 		- hstore
+ 	- the ipad will need to be able to print it
+ 	- the render needs the table number, items as row
+ 		- all details listed under as sub bullets
+
+ - on the ipad, how the fuck do i store
+ 	- the receipt gets printed when the customers are being seated
+ 	- the server clicks the name, shit gets printed
+ 	- so info needs to be stored in the server somehow
 
  - items
  	- id
@@ -35,4 +54,4 @@
  	- id
  	- user_id
  	- items_id
- 	- special request
+ 	- string
