@@ -6,20 +6,3 @@
     </div>
   </div>
  </nav>
-
-
-<div id="fullscreen_bg" class="fullscreen_bg"/>
-	<div class="list-group">
-		<% @business.ordered_items.each do |item| %>
-			<% case item.keys[0].item_level %>
-			<% when 1 %>
-				<%= render :partial => 'item_level_1', :locals => {:item => item} %>
-			<% when 2 %>
-				<%= render :partial => 'item_level_2', :locals => {:item => item} %>
-			<% when 3 %>
-				<%= render :partial => 'item_level_3', :locals => {:item => item} %>
-			<% end %>
-		<% end %>
-	</div>
-
-</div>

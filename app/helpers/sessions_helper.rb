@@ -5,6 +5,11 @@ module SessionsHelper
     session[:business_id] = business.id
   end
 
+  def log_out
+    session.delete(:business_id)
+    @current_user = nil
+  end
+
   # Returns the current logged-in user (if any).
   def current_business
     @current_business ||= Business.find_by(id: session[:business_id])
