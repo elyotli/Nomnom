@@ -4,6 +4,7 @@ class BusinessesController < ApplicationController
 	def show
   		if logged_in?
     		@business = @current_business
+    		render "customer_interface"
 		else
 			redirect_to login_url
 		end
