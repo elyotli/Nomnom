@@ -11,21 +11,23 @@ main_menu = Menu.create!(business: cpogc, name: 'Main Menu')
 
 sub_menu_1 = Submenu.create!(menu: main_menu, name: 'Pizza Pot Pie')
 
-pizza_pot_pie = Item.create!(business: cpogc, name: "Pizza Pot Pie", description: 'The Pizza Pot Pie is an individual serving, "made from scratch" with triple-raised Sicilian bread-type dough; a homemade sauce consisting of olive oil, fresh garlic, onions, green peppers, whole plum tomatoes and a special blend of cheeses; sausage made from prime Boston butts; and doorknob-size, whole, fresh mushrooms. (Vegetarian pizza pot pie may be special ordered.)')
+pizza_pot_pie = Item.create!(submenu: sub_menu_1, name: "Pizza Pot Pie", description: 'The Pizza Pot Pie is an individual serving, "made from scratch" with triple-raised Sicilian bread-type dough; a homemade sauce consisting of olive oil, fresh garlic, onions, green peppers, whole plum tomatoes and a special blend of cheeses; sausage made from prime Boston butts; and doorknob-size, whole, fresh mushrooms. (Vegetarian pizza pot pie may be special ordered.)')
 
-Detail.create!(business: cpogc, name: "The half-pounder", parent: pizza_pot_pie, price: 11.75)
-Detail.create!(business: cpogc, name: "The one-pounder", parent: pizza_pot_pie, price: 23.50)
+pizza_pot_pie_size = ItemOption.create!(item: pizza_pot_pie, name: "size", display_type: 1)
 
-ItemDetail.create!()
+ItemDetail.create!(item_option: pizza_pot_pie_size, name: "The half-pounder", price: 11.75)
+ItemDetail.create!(item_option: pizza_pot_pie_size, name: "The one-pounder", price: 23.50)
 
-oven_grinder = Item.create!(business: cpogc, name: "Oven Grinders", description: 'What in the blazes??? A large authentic Italian loaf stuffed with select Italian meats, cheeses, peppers, etc. basted with freshly seasoned garlic oil, and baked piping hot...', item_level: 3)
+oven_grinder = Item.create!(submenu: sub_menu_1, name: "Oven Grinders", description: 'What in the blazes??? A large authentic Italian loaf stuffed with select Italian meats, cheeses, peppers, etc. basted with freshly seasoned garlic oil, and baked piping hot...')
 
-Item.create!(business: cpogc, name: "Italian Combination", parent: oven_grinder, price: 13.25, item_level: 2)
-Item.create!(business: cpogc, name: "Italian Salami", parent: oven_grinder, price: 12.75, item_level: 2)
-Item.create!(business: cpogc, name: "Italian Ham", parent: oven_grinder, price: 12.75, item_level: 2)
-Item.create!(business: cpogc, name: "Meatball", parent: oven_grinder, price: 12.75, item_level: 2)
-Item.create!(business: cpogc, name: "Sausage", parent: oven_grinder, price: 12.75, item_level: 2)
-Item.create!(business: cpogc, name: "Vegetarian", parent: oven_grinder, price: 12.75, item_level: 2)
+oven_grinder_flavor = ItemOption.create!(item:oven_grinder, name: "filling", display_type: 1)
+
+ItemDetail.create!(item_option: oven_grinder_flavor, name: "Italian Combination", price: 13.25)
+ItemDetail.create!(item_option: oven_grinder_flavor, name: "Italian Salami", price: 12.75)
+ItemDetail.create!(item_option: oven_grinder_flavor, name: "Italian Ham", price: 12.75)
+ItemDetail.create!(item_option: oven_grinder_flavor, name: "Meatball", price: 12.75)
+ItemDetail.create!(item_option: oven_grinder_flavor, name: "Sausage", price: 12.75)
+ItemDetail.create!(item_option: oven_grinder_flavor, name: "Vegetarian", price: 12.75)
 
 # antipasto = Item.create!(business: cpogc, name: "Antipasto", description: %q["Before the meal"...a cheerful, colorful, and appetizing variety of the splendid Italian version of hors d'oeuvres. This abundant serving, however, offers a judicious selection from which one can create a complete individual meal. Experience these unique taste sensations with the Mediterranean Bread and a bottle of dry, red Italian wine.], item_level: 3)
 

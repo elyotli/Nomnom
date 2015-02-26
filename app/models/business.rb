@@ -1,5 +1,5 @@
 class Business < ActiveRecord::Base
-	has_many :items
+	has_many :menus
 	has_secure_password
 
 	def ordered_items

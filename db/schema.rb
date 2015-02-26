@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123211116) do
+ActiveRecord::Schema.define(version: 20150226043639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -24,29 +25,53 @@ ActiveRecord::Schema.define(version: 20150123211116) do
     t.datetime "updated_at"
   end
 
-  create_table "items", force: true do |t|
-    t.integer  "business_id"
-    t.string   "name",        null: false
-    t.string   "size"
+  create_table "item_details", force: true do |t|
+    t.integer "item_option_id"
+    t.text    "name"
+    t.float   "price"
+  end
+
+  create_table "item_options", force: true do |t|
+    t.integer  "item_id"
+    t.string   "name"
     t.text     "description"
-    t.string   "image_path"
-    t.float    "price"
-    t.integer  "item_level",  null: false
-    t.integer  "parent_id"
+    t.integer  "display_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "orders", force: true do |t|
-    t.integer  "visit_id"
-    t.integer  "item_id"
-    t.text     "special_request"
+  create_table "item_permutations", force: true do |t|
+    t.integer "item_id"
+    t.string  "options"
+    t.integer "item_detail_id"
+  end
+
+  create_table "items", force: true do |t|
+    t.integer  "submenu_id"
+    t.string   "name",        null: false
+    t.text     "description"
+    t.string   "image_path"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menus", force: true do |t|
+    t.integer "business_id"
+    t.text    "name"
+    t.text    "description"
+  end
+
+  create_table "submenus", force: true do |t|
+    t.integer  "menu_id"
+    t.text     "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
+    t.string   "first_name", null: false
     t.string   "last_name"
     t.date     "dob"
     t.string   "phone",      null: false
@@ -55,9 +80,10 @@ ActiveRecord::Schema.define(version: 20150123211116) do
   end
 
   create_table "visits", force: true do |t|
-    t.integer  "business_id", null: false
-    t.integer  "user_id",     null: false
-    t.string   "status"
+    t.integer  "user_id"
+    t.integer  "business_id"
+    t.float    "total"
+    t.hstore   "order_details"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
