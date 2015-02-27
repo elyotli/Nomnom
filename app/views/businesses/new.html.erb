@@ -7,9 +7,18 @@
 	<%= render 'shared/flash_messages' if !flash.empty? %>
 
 	<%= form_for @business do |b| %>
-	  	<%= b.text_field :name, class: "form-control", placeholder: "Name of your business"%>
-	  	<%= b.text_field :email, class: "form-control", placeholder: "Email address"%>
-	  	<%= b.password_field :password, class: "form-control", placeholder: "Password"%><br/>
+		<div data-role="fieldcontain">
+			<label for="name">Business Name</label>
+	  		<%= b.text_field :name, class: "form-control" %>
+	  	</div>
+	  	<div data-role="fieldcontain">
+			<label for="email">Email</label>
+	  		<%= b.text_field :email, class: "form-control" %>
+	  	</div>
+	  	<div data-role="fieldcontain">
+	  		<label for="password">Password</label>
+	  		<%= b.password_field :password, class: "form-control" %>
+	  	</div>
 	  	<%= b.submit "Create Account", class:"btn btn-lg btn-primary btn-block"%>
 	<% end %>
 </div>

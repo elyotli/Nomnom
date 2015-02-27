@@ -7,11 +7,15 @@
 	<%= render 'shared/flash_messages' if !flash.empty? %>
 
 	<%= form_for(:session, url: login_path) do |b| %>
-	  	<%= b.text_field :email, class: "form-control", placeholder: "Email address"%>
-	  	<%= b.password_field :password, class: "form-control", placeholder: "Password"%><br/>
+		<div data-role="fieldcontain">
+			<label for="email">Email:</label>
+	  		<%= b.text_field :email, class: "form-control"%>
+	  	</div>
+	  	<div data-role="fieldcontain">
+			<label for="name">Password:</label>
+	  		<%= b.password_field :password, class: "form-control"%>
+	  	</div>
 	  	<%= b.submit "Sign in", class:"btn btn-lg btn-primary btn-block"%>
-
-
 	<% end %>
 
 	<p>New user? <%= link_to "Sign up now!", new_business_path %></p>

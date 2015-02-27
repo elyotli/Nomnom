@@ -1,13 +1,19 @@
 class OrdersController < ApplicationController
 
-	def menu
+	def new
 		@business = Business.find(params[:business_id])
 		@user = User.find(params[:user_id])
 		
 	end
 
-	def welcome
+	def create
 		
+	end
+
+	def edit #get
+
+	def update
+
 	end
 
 end
