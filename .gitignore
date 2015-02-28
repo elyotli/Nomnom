@@ -17,4 +17,4 @@
 .env
 
 # Ignore .rubyversion
-.ruby-version
+/.ruby-version
