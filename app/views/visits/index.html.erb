@@ -1,11 +1,38 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+  		<%= link_to "Back", business_path(@business) %>
+    </div>
+  </div>
+</nav>
+
 <div class="page-header">
 	Customers waiting at <%= @business.name %>:
 </div>
 
 <div class="container">
 	<table class="table">
-
-
-
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Party Size</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>Total:</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<% @visits.each_with_index do |visit, n| %>
+				<tr>
+					<td><%= n %></td>
+					<td>name of visitor</td>
+					<td>party size</td>
+				</tr>
+			<% end %>
+		</tbody>
+		
 	</table>
 </div>

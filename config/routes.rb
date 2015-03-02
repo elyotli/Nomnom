@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     resources :visits, only: [:index]
   end
 
-  resources :orders
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
