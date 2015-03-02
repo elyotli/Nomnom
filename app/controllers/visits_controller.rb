@@ -1,18 +1,17 @@
 class VisitsController < ApplicationController
+	
+	def index
+		@business = Business.find(params[:business_id])
+	end
 
 	def new
-		@business = Business.find(session[:business_id])
-		@user = User.find(params[:user_id])
+		@business = Business.find(params[:business_id])
+		@user = User.find_or_create_by(params[:user_id])
 		
 	end
 
 	def create
 		
-	end
-
-	def index
-		@business = Business.find(session[:business_id])
-		@visits = @business.visits
 	end
 
 	def edit #get

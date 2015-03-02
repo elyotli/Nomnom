@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :businesses do
-    resources :visits, only: [:index]
+    resources :visits
   end
 
   # Example of regular route:

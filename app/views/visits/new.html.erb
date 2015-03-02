@@ -1,0 +1,41 @@
+<!-- Start of menu page -->
+<div data-role="page" id="main_view">
+
+	<% @business.menus.each do |menu| %>
+		<div class="menu">
+			<h2><%= menu.name %></h2>
+			<p><%= menu.description %></p>
+
+
+			<% menu.submenus.each do |submenu| %>
+				<div class="submenu">
+					<h3><%= submenu.name %></h3>
+					<p><%= submenu.description %></p>
+
+
+					<% submenu.items.each do |item| %>
+						<a href="#item_view">
+						<div class="item">
+							<h4><%= item.name %></h4>
+							<p><%= item.description %></p>
+
+
+						</div>
+						</a>
+					<% end %>
+				</div>
+			<% end %>
+		</div>>
+	<% end %>
+
+
+	<button class="btn btn-lg btn-primary btn-block">Submit Order</button>
+
+</div>
+
+<!-- Start of individual page -->
+
+<div data-role="page" id="item_view">
+	<p> item details </p>
+	<a href="#main_view">go back</a>
+</div>
