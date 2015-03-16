@@ -1,13 +1,15 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-  	<div class="navbar-header">
-  		<%= link_to "Back", business_path(@business) %>
-    </div>
-  </div>
-</nav>
+<div class="nav-top">
+	<div class="nav-left">
+		<h4>
+  			<%= link_to "Back", business_path(@business) %>
+    	</h4>
+	</div>
+</div>
 
 <div class="page-header">
-	Customers waiting at <%= @business.name %>:
+	<p class="center-text">
+		Customers waiting at <%= @business.name %>:
+	</p>
 </div>
 
 <div class="container">

@@ -2,6 +2,7 @@ class VisitsController < ApplicationController
 	
 	def index
 		@business = Business.find(params[:business_id])
+		@visits = @business.visits
 	end
 
 	def new
@@ -11,6 +12,9 @@ class VisitsController < ApplicationController
 	end
 
 	def create
+		#after user has registered at the queue
+		#create a visit object
+		#message the user with the menu
 		
 	end
 
@@ -19,6 +23,12 @@ class VisitsController < ApplicationController
 	end
 
 	def update
+
+	end
+
+	private
+
+	def visit_params
 
 	end
 

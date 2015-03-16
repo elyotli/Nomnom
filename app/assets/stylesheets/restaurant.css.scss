@@ -1,19 +1,41 @@
 $primary_color: #333;
 $secondary_color: #444;
 
+
+
 .center-text{
 	text-align: center;
 }
 
-.level-1{
-	padding: 0;
-	border: 1px solid #ddd;
-	margin-bottom: -1px;
+.nav-top{
+	position:relative;
+	height: 30px;
 }
 
-.level-1-title{
-	padding: 5px 15px;
+.nav-left{
+	position: absolute;
+	left:0;
+	top:0;
 }
+
+.nav-right{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.register-field{
+	label{
+		text-align: right;
+	}
+
+}
+
+
+
+
+
+
 
 .price-div{
 	float:right;
@@ -32,8 +54,4 @@ $secondary_color: #444;
 
 .price-tag{
 	display: block;
-}
-
-.level-2-title{
-	padding: 5px 15px;
 }
