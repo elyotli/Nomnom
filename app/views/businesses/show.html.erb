@@ -20,17 +20,21 @@
 	</p>
 </div>
 
+<div class="flash-container center-text">
+	<%= render 'shared/flash_messages' if !flash.empty? %>
+</div>
+
 <div class="register-container">
-	<%= form_for [@business, @visit] do |f| %>
+	<%= form_tag(business_visits_path(@business), method: :post) do %>
 		<div data-role="fieldcontain" class="register-field">
 		    <label for="name">Your name:</label>
-		    <%= f.text_field :name, id: "name"%>
+		    <%= text_field_tag 'name', nil,  id: "name" %>
 		</div>
 
 		<div data-role="fieldcontain" class="register-field">
 			<label for="phone">Your phone number:</label>
-			<%= f.text_field :phone, id: "phone"%>
+			<%= text_field_tag 'phone', nil, id: "phone" %>
 		</div>
-		<%= f.submit "Submit" %>
+		<%= submit_tag("Submit") %>
 	<% end %>
 </div>

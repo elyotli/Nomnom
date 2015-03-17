@@ -6,16 +6,17 @@ class VisitsController < ApplicationController
 	end
 
 	def new
-		@business = Business.find(params[:business_id])
-		@user = User.find_or_create_by(params[:user_id])
-		
 	end
 
 	def create
-		#after user has registered at the queue
-		#create a visit object
-		#message the user with the menu
-		
+		@user = User.find_or_initialize_by(first_name: params[:name], phone: params[:phone])
+		@business = Business.find(params[:business_id])
+		@visit = Visit.new(user: @user, business: @business)
+		if @user.save! && @visit.save!
+			redirect_to business_url(@business), notice: "Thanks! We will text you the menu shortly"
+		else
+			redirect_to business_url(@business), alert: "Something's wrong"
+		end
 	end
 
 	def edit #get
@@ -29,7 +30,7 @@ class VisitsController < ApplicationController
 	private
 
 	def visit_params
-
+		params.permit(:name, :phone, :business_id)
 	end
 
 end

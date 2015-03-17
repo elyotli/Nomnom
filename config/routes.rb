@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :visits
   end
 
+  post 'twilio/voice' => 'twilio#voice'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
