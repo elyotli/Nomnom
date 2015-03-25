@@ -56,3 +56,4 @@ gem 'jquery_mobile_rails'
 gem 'puma'
 
 gem 'twilio-ruby'
+gem 'bitly'
